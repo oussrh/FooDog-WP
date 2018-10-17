@@ -1,0 +1,64 @@
+*{
+    margin:0;
+    padding : 0;
+}
+
+.grid-container {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 1px 1px;
+  grid-template-areas: ". upgrades upgrades" "Counter . stats" "footer footer footer";
+}
+
+.Counter { 
+    grid-area: Counter;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    background-color: red;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.counterDiv{
+
+width: 150px;
+height: 150px;
+border: 1px solid black;
+border-radius: 50%;
+text-align: center;
+line-height: 150px;
+margin-bottom: 10px;
+}
+
+.clicker{
+    width: 100px;
+    height: 40px;
+    display: block;
+}
+
+.upgrades { 
+    grid-area: upgrades;
+    background: blue;
+    width: 100%;
+    height: 100%;
+}
+
+.footer { 
+    grid-area: footer;
+    background: yellow;
+    width: 100%;
+    height: 100%;
+}
+
+.stats { 
+    grid-area: stats;
+    background: green;
+    width: 100%;
+    height: 100%;
+}
