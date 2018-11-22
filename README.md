@@ -1,5 +1,3 @@
 # FooDog-WP
 
-Bonjour tout le monde,
-
-La première étape sera de réaliser la structure HTML/CSS en BOOTSTRAP/FLEX. 
+Site réalisé en Web Component, par @nathangemis, @akbarNz, @oussrh et moi-même.
