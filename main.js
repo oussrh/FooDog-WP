@@ -8,14 +8,14 @@ data = JSON.parse(xmlhttp.responseText);
 
 for (let i = 0; i < 3; i++) {
     articles += /*html*/ `
-            <section class="topArticle col-lg-12 d-flex">
+            <a href="article.html?id=${data.docs[i]._id}"><section class="topArticle col-lg-12 d-flex">
                 <figure class="col-lg-5">
-                    <img src="${data.docs[i].imgUrl}" />
+                    <img class="img-responsive" src="${data.docs[i].imgUrl}"/>
                 </figure>
                 <article class="offset-lg-1 col-lg-6 d-flex">
                     <p>${data.docs[i].title}</p>
                 </article>
-            </section>`;
+            </section></a>`;
 }
 
 class FeaturedPost extends HTMLElement {
@@ -95,12 +95,12 @@ class Footer extends HTMLElement {
                                     <section class="offset-lg-1 col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                         <h3>CATAGORIES</h3>
                                         <ul class="menuFooter">
-                                            <li>Community</li>
-                                            <li>Featured</li>
-                                            <li>Lifestyle</li>
-                                            <li>Nutrition</li>
-                                            <li>Uncategorized</li>
-                                            <li>Wellness</li>
+                                            <a href="categorie.html?cat=community"><li>Community</li></a>
+                                            <a href="categorie.html?cat=featured"><li>Featured</li></a>
+                                            <a href="categorie.html?cat=lifestyle"><li>Lifestyle</li></a>
+                                            <a href="categorie.html?cat=nutrition"><li>Nutrition</li></a>
+                                            <a href="categorie.html?cat=uncategorized"><li>Uncategorized</li></a>
+                                            <a href="categorie.html?cat=wellness"><li>Wellness</li></a>
                                         </ul>
                                     </section>
                                     <section id="popularPost" class="col-lg-4 col-md-4 col-sm-4 col-xs-12">

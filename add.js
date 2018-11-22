@@ -7,7 +7,7 @@
         
         let formData = new FormData();
         formData.append('title','oussama test');
-        formData.append('text','qsdqsd qsdqsdqsdqs qsdqsd');
+        formData.append('text','qsdqsd qsdqsdqsdqs qsdqsdr');
         //formData.append("image",file);
         let response = await fetch(url, {
             method: "POST",
@@ -21,8 +21,6 @@
         // response = await response.json();
     };
 
-
-    
     document.querySelector('#submit').addEventListener('click',postArticles);
 
 }
