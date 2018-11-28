@@ -28,10 +28,10 @@ class Header extends HTMLElement{
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
-                <a class="nav-item nav-link" href="#">Nutrition <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">Welness</a>
-                <a class="nav-item nav-link" href="#">Lifestyle</a>
-                <a class="nav-item nav-link" href="#">Community</a>
+                <a class="nav-item nav-link" href="categorie.html?cat=nutrition">Nutrition <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="categorie.html?cat=wellness">Welness</a>
+                <a class="nav-item nav-link" href="categorie.html?cat=lifestyle">Lifestyle</a>
+                <a class="nav-item nav-link" href="categorie.html?cat=community">Community</a>
               </div>
             </div>
           </nav>
