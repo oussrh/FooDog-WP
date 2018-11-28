@@ -67,7 +67,10 @@ custHeader.innerHTML = `
 
     .box1 {
     width: 100%;
-    height: 100%;
+    max-height: 20%;
+    display: flex;
+    border-bottom: 2px solid #f3f3f3;
+
 
     }
     .box {
@@ -125,6 +128,13 @@ custHeader.innerHTML = `
     margin-right:10px;
     }
 
+    .image6{
+        width:50%;
+        height:50%;
+    margin-left:100%;
+
+    }
+
     .box5{
     display:flex;
     justify-content: space-between;
@@ -174,6 +184,19 @@ custHeader.innerHTML = `
     align-items: center;
     justify-content: center;
     }
+    .box9{
+    border: 1px solid black;
+    background-color:black;
+    width:5%;
+    height:7%;
+    display: flex;
+    color:white;
+    font-size:10px;
+    font-weight:bold;
+    align-items:center;
+    justify-content:center;
+    }
+
 
     .item {
     width:20%;
@@ -215,13 +238,25 @@ custHeader.innerHTML = `
      .box5 {font-size:10px;}
      p {font-size:10px;}
      h2 {font-size:20px;}
+     .image6 {
+        width: 50%;
+        height:50%;
+     }
 }
+
 
     </style>
     <div id="content">
 
-      <div class="box1" style='font-size:20px;'>FooDog</div>
+      <div class="box1" style='font-size:20px;'><p>FooDog</p>
 
+        <div style='margin-left:40%;font-size:13px;margin-right:1%'><p>Digest In Your Inbox</p></div>
+        <div><textarea name="textarea"rows="1" cols="20" style ='border: 1px solid black';>Your Email.</textarea></div>
+        <div class='box9'><p>Sign up</p></div>
+        <div><img src="http://2.gravatar.com/avatar/b53e70446036669a0cae7fffabc3c2f3?s=140&d=mm&r=g" class="image6"></div>
+  
+      </div>
+  <hr>
       <div class="box" >Nutrition</div>
 
       <div class="box" ><p><h2>${(montext.title)}</h2></p></div>
