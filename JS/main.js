@@ -28,7 +28,7 @@ class FeaturedPost extends HTMLElement {
 
         let linkStyle = document.createElement('link');
         linkStyle.setAttribute('rel', 'stylesheet');
-        linkStyle.setAttribute('href', '../CSS/footer.css');
+        linkStyle.setAttribute('href', 'CSS/footer.css');
 
         let linkBoots = document.createElement('link');
         linkBoots.setAttribute('rel', 'stylesheet');
@@ -71,7 +71,7 @@ class Footer extends HTMLElement {
 
         let linkStyle = document.createElement('link');
         linkStyle.setAttribute('rel', 'stylesheet');
-        linkStyle.setAttribute('href', 'footer.css');
+        linkStyle.setAttribute('href', 'CSS/footer.css');
 
         let linkBoots = document.createElement('link');
         linkBoots.setAttribute('rel', 'stylesheet');
