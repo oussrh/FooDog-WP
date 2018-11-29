@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Add your article</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+</head>
+
+<body>
+    <div class="container grid-lg">
+        <div class="columns">
+            <form id="postForm">
+                <div class="form-group">
+                    <label class="form-label" for="title">Name</label>
+                    <input class="form-input" type="text" id="title" placeholder="title">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="author">Name</label>
+                    <input class="form-input" type="text" id="author" placeholder="Author">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="photo">Name</label>
+                    <input class="form-input" type="file" id="photo">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="artic">Message</label>
+                    <textarea class="form-input" id="artic" placeholder="type your article here" rows="3"></textarea>
+                </div>
+                <button id="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script src="add.js"></script>
+</body>
+
+</html>
