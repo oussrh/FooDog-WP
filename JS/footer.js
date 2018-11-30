@@ -1,22 +1,8 @@
-var xmlhttp;
-articles = '';
+
 xmlhttp = new XMLHttpRequest();
 
-xmlhttp.open("GET", "https://foodog.herokuapp.com/articles", false);
-xmlhttp.send();
-data = JSON.parse(xmlhttp.responseText);
+xmlhttp.open("GET", "https://foodog.herokuapp.com/articles", true);
 
-for (let i = 0; i < 3; i++) {
-    articles += /*html*/ `
-            <a href="article.html?id=${data.docs[i]._id}"><section class="topArticle col-lg-12 d-flex">
-                <figure class="col-lg-5">
-                    <img class="img-responsive" src="${data.docs[i].imgUrl}"/>
-                </figure>
-                <article class="offset-lg-1 col-lg-6 d-flex">
-                    <p>${data.docs[i].title}</p>
-                </article>
-            </section></a>`;
-}
 
 class FeaturedPost extends HTMLElement {
     constructor() {
@@ -25,6 +11,32 @@ class FeaturedPost extends HTMLElement {
         let shadowDom = this.attachShadow({
             mode: 'open'
         });
+        let articles = '';
+        xmlhttp.onload = function(){
+            if(xmlhttp.readyState === 4 && xmlhttp.status === 200){
+                let data = JSON.parse(xmlhttp.responseText)
+                for (let i = 0; i < 3; i++) {
+                    articles += /*html*/ `
+                            <section class="topArticle col-lg-12 d-flex">
+                            
+                                <figure class="col-lg-5">
+                                    <a href="article.html?id=${data.docs[i]._id}" title="${data.docs[i].title}">
+                                        <img class="img-responsive" src="${data.docs[i].imgUrl}" alt="${data.docs[i].title}"/>
+                                    </a>
+                                </figure>
+
+                                <article class="offset-lg-1 col-lg-6 d-flex">
+                                    <a href="article.html?id=${data.docs[i]._id}" title="${data.docs[i].title}">
+                                        <p>${data.docs[i].title}</p>
+                                    </a>
+                                </article>
+                            
+                            </section>`;
+                }
+
+                footer.innerHTML = articles ;
+            }
+        }
 
         let linkStyle = document.createElement('link');
         linkStyle.setAttribute('rel', 'stylesheet');
@@ -44,16 +56,15 @@ class FeaturedPost extends HTMLElement {
 
         let footer = document.createElement('div');
         footer.setAttribute('class', 'container-fluid');
-        footer.innerHTML = /*html*/ `
-            ${articles}
-        `
-        ;
-
+        
+        
+        
         shadowDom.appendChild(linkStyle);
         shadowDom.appendChild(linkBoots);
         shadowDom.appendChild(linkFont);
         shadowDom.appendChild(linkfontawesome);
-        shadowDom.appendChild(footer);
+        
+        this.shadowRoot.appendChild(footer);
 
     }
 }
@@ -64,7 +75,7 @@ customElements.define('featured-post', FeaturedPost);
 class Footer extends HTMLElement {
     constructor() {
         super()
-
+        let articles = '';
         let shadowDom = this.attachShadow({
             mode: 'open'
         });
@@ -95,12 +106,12 @@ class Footer extends HTMLElement {
                                     <section class="offset-lg-1 col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                         <h3>CATAGORIES</h3>
                                         <ul class="menuFooter">
-                                            <a href="categorie.html?cat=community"><li>Community</li></a>
-                                            <a href="categorie.html?cat=featured"><li>Featured</li></a>
-                                            <a href="categorie.html?cat=lifestyle"><li>Lifestyle</li></a>
-                                            <a href="categorie.html?cat=nutrition"><li>Nutrition</li></a>
-                                            <a href="categorie.html?cat=uncategorized"><li>Uncategorized</li></a>
-                                            <a href="categorie.html?cat=wellness"><li>Wellness</li></a>
+                                            <li><a href="categorie.html?cat=community" title="Community">Community</a></li>
+                                            <li><a href="categorie.html?cat=featured" title="Featured">Featured</a></li>
+                                            <li><a href="categorie.html?cat=lifestyle" title="Lifestyle">Lifestyle</a></li>
+                                            <li><a href="categorie.html?cat=nutrition" title="Nutrition">Nutrition</a></li>
+                                            <li><a href="categorie.html?cat=uncategorized" title="Uncategorized">Uncategorized</a></li>
+                                            <li><a href="categorie.html?cat=wellness" title="Wellness">Wellness</a></li>
                                         </ul>
                                     </section>
                                     <section id="popularPost" class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -116,9 +127,9 @@ class Footer extends HTMLElement {
                                 <section class="darkSide col-lg-12">
                                     <div class="row">
                                         <section class="socialNet col-lg-12">
-                                            <a><i class="fab fa-facebook-f"></i></a>
-                                            <a><i class="fab fa-twitter"></i></a>
-                                            <a><i class="fab fa-instagram"></i></a>
+                                            <a href="https://www.facebook.com/thefarmersdog" title='facebook' target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+                                            <a href="https://twitter.com/farmersdog" title='twitter' target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                                            <a href="https://www.instagram.com/thefarmersdog/" title='instagram' target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
                                         </section>
                                     </div>
                                     <div class="row">
@@ -130,13 +141,15 @@ class Footer extends HTMLElement {
                             </div>
                         </footer>
                     </div>`;
+
         shadowDom.appendChild(linkStyle);
         shadowDom.appendChild(linkBoots);
         shadowDom.appendChild(linkFont);
         shadowDom.appendChild(linkfontawesome);
-        shadowDom.appendChild(footer);
+        this.shadowRoot.appendChild(footer);
     }
 }
 
 customElements.define('footer-template', Footer);
 
+xmlhttp.send();

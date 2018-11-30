@@ -9,15 +9,15 @@ class Header extends HTMLElement{
         header.innerHTML = /*html*/`
         <div class="row header-block">
         <div class="social">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fas fa-search"></i></a>
-        </div>
+          <a href="https://www.facebook.com/thefarmersdog" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com/farmersdog" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/thefarmersdog/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+          <a href="http://digest.thefarmersdog.com" target="_blank" rel="noopener"><i class="fas fa-search"></i></a>
+        </div
   
         <div class="top-block">
           <div class="logo">
-            <a href="#">
+            <a href="index.html">
               <h1>FooDog</h1>
             </a>
           </div>
