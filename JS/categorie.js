@@ -23,7 +23,6 @@ class CatArticles extends HTMLElement {
 
         let styleSheet = document.createElement('link');
         styleSheet.setAttribute('rel', 'stylesheet');
-        styleSheet.setAttribute('rel', 'preload');
         styleSheet.setAttribute('href', 'CSS/categorie.css');
 
         shadowDom.appendChild(styleSheet);
