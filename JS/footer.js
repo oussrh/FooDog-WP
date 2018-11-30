@@ -40,6 +40,7 @@ class FeaturedPost extends HTMLElement {
 
         let linkStyle = document.createElement('link');
         linkStyle.setAttribute('rel', 'stylesheet');
+        linkStyle.setAttribute('rel', 'preload');
         linkStyle.setAttribute('href', 'CSS/footer.css');
 
         let linkBoots = document.createElement('link');
