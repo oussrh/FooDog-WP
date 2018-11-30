@@ -24,8 +24,12 @@ class CatArticles extends HTMLElement {
         let styleSheet = document.createElement('link');
         styleSheet.setAttribute('rel', 'stylesheet');
         styleSheet.setAttribute('href', 'CSS/categorie.css');
-
         shadowDom.appendChild(styleSheet);
+
+        let linkFont = document.createElement('link');
+        linkFont.setAttribute('rel', 'stylesheet');
+        linkFont.setAttribute('href', 'https://fonts.googleapis.com/css?family=Crimson+Text%7COpen+Sans');
+        shadowDom.appendChild(linkFont);
 
         let tagTitle = document.createElement('h2');
         this.shadowRoot.appendChild(tagTitle);

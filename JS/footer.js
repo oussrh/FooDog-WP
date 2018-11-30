@@ -49,7 +49,7 @@ class FeaturedPost extends HTMLElement {
 
         let linkFont = document.createElement('link');
         linkFont.setAttribute('rel', 'stylesheet');
-        linkFont.setAttribute('href', 'https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans');
+        linkFont.setAttribute('href', 'https://fonts.googleapis.com/css?family=Crimson+Text%7COpen+Sans');
 
         let linkfontawesome = document.createElement('link');
         linkfontawesome.setAttribute('rel', 'stylesheet');
