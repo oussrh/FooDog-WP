@@ -1,6 +1,6 @@
 xhr = new XMLHttpRequest();
+
 let pageUrl = new URLSearchParams(window.location.search);
-cat = pageUrl.get('cat');
 pageUrl = pageUrl.get('page');
 
 
@@ -10,23 +10,31 @@ xhr.open('GET', url, true);
 xhr2 = new XMLHttpRequest();
 xhr2.open('GET', url, true);
 
-console.log(cat, ' ', pageUrl);
 
-class LatestPost extends HTMLElement {
+class CatArticles extends HTMLElement {
     constructor() {
         super();
+        let shadowDom = this.attachShadow({
+            mode: 'open'
+        });
 
         let pageUrl = new URLSearchParams(window.location.search);
         let categ = pageUrl.get('cat');
 
-        let shadowDom = this.attachShadow({mode: 'open'});
         let styleSheet = document.createElement('link');
         styleSheet.setAttribute('rel', 'stylesheet');
         styleSheet.setAttribute('href', 'CSS/categorie.css')
         shadowDom.appendChild(styleSheet);
+
+        let tagTitle = document.createElement('h1');
+        this.shadowRoot.appendChild(tagTitle);
+        tagTitle.innerHTML = categ.toUpperCase();
+
         let section = document.createElement('section');
-        section.setAttribute('id', 'latest-post');
+        section.setAttribute('id', 'cat-post');
         this.shadowRoot.appendChild(section);
+
+        
 
         xhr.onload = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
@@ -34,28 +42,44 @@ class LatestPost extends HTMLElement {
 
                 for (let i = 0; i < data.docs.length; i++) {
 
-                    for (cat = 0; cat < data.docs[i].tagForArticle.length; cat++) {
+                    for (let cat = 0; cat < data.docs[i].tagForArticle.length; cat++) {
 
-                        if (data.docs[i].tagForArticle[cat].toLowerCase() === categ) {
+                        if (data.docs[i].tagForArticle[cat].toLowerCase() === categ.toLowerCase()) {
 
-                            let div = document.createElement('div');
+                            let div = document.createElement('article');
                             div.classList.add("block");
+
+                            let tags = '';
+                                for (let j = 0; j < data.docs[i].tagForArticle.length; j++) {
+                                    tags += ` <a href="categorie.html?cat=${data.docs[i].tagForArticle[j]}"><h6 class="categories">${data.docs[i].tagForArticle[j]}</h6></a> `;
+                                }
+
                             if (data.docs[i].imgUrl == "") {
+
                                 div.innerHTML = /*html*/ `
-                        <a href="http://"><img src="http://ukcdn.ar-cdn.com/recipes/xlarge/nophoto.svg" alt="${data.docs[i].title}"></a>
-                        <a href="http://"><h6 class="categories">${data.docs[i].tagForArticle}</h6></a>   
-                        <a href="http://"><h2 class="title">${data.docs[i].title}</h2></a>
-                        <p class="resume">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad laborum accusantium incidunt voluptas soluta aut. Sequi aliquam hic ex?</p>
-                      `
+                                <figure>
+                                <a href="article.html?id=${data.docs[i]._id}"><img src="http://ukcdn.ar-cdn.com/recipes/xlarge/nophoto.svg" alt="${data.docs[i].title}"></a>
+                                </figure>
+                                <section>
+                                ${tags}|
+                                <a href="article.html?id=${data.docs[i]._id}"><h2 class="title">${data.docs[i].title}</h2></a>
+                                <p class="resume">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad laborum accusantium incidunt voluptas soluta aut. Sequi aliquam hic ex?</p>
+                                </section>
+                                `
                                 section.appendChild(div);
 
                             } else {
-                                div.innerHTML = /*html*/ `   
-                        <a href="http://"><img src="${data.docs[i].imgUrl}" alt="${data.docs[i].title}"></a>   
-                        <a href="http://"><h6 class="categories">${data.docs[i].tagForArticle}</h6></a>  
-                        <a href="http://"><h2 class="title">${data.docs[i].title}</h2></a>
-                        <p class="resume">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad laborum accusantium incidunt voluptas soluta aut. Sequi aliquam hic ex?</p>
-                      `
+
+                                div.innerHTML = /*html*/ `
+                                <figure>
+                                <a href="article.html?id=${data.docs[i]._id}"><img src="${data.docs[i].imgUrl}" alt="${data.docs[i].title}"></a>
+                                </figure>
+                                <section>
+                                ${tags}|
+                                <a href="article.html?id=${data.docs[i]._id}"><h2 class="title">${data.docs[i].title}</h2></a>
+                                <p class="resume">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad laborum accusantium incidunt voluptas soluta aut. Sequi aliquam hic ex?</p>
+                                </section>
+                                `
                                 section.appendChild(div);
                             }
 
@@ -111,13 +135,14 @@ class Pagination extends HTMLElement {
     }
 }
 
-customElements.define('lastpost-comp', LatestPost);
+customElements.define('catarticles-comp', CatArticles);
 customElements.define('pagination-comp', Pagination);
+
 
 xhr.send();
 xhr2.send();
 
 
 
-let pagination = document.body.querySelector("#pagination");
-let eachPage = pagination.querySelectorAll(".page");
+// let pagination = document.body.querySelector("#pagination");
+// let eachPage = pagination.querySelectorAll(".page");

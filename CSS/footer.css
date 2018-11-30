@@ -18,13 +18,13 @@ footer h3 {
     margin-left: 10px;
 }
 
-a{
-    text-decoration: none;
-    color: inherit;
+a,li{
+    text-decoration: none !important;
+    color: #fff !important;
 }
-a:link,a:hover,a:active,a:checked{ 
-text-decoration:none;
-color: inherit;
+a:link,a:hover,a:active,a:checked,li{ 
+text-decoration:none !important;
+color: #aaa !important;
 } 
 
 .lightSide {
@@ -117,7 +117,7 @@ figure img {
     height: 100%;
     object-fit: cover;
     object-position: center bottom;
-    background-image: url("nophoto.svg");
+    background-image: url("../img/nophoto.svg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }

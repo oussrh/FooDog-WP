@@ -1,4 +1,3 @@
-
 xhr = new XMLHttpRequest();
 xhr.open("GET", "https://foodog.herokuapp.com/articles", true);
 
@@ -45,7 +44,7 @@ class Articles extends HTMLElement {
                                         }
                                         div.innerHTML = /*html*/`  
                 <div class="article">
-                        <a class ="img-hover"href="article.html?id=${(response.docs[i]._id)}"><img src="${(response.docs[i].imgUrl)}" class="image1"></a>
+                        <a class ="img-hover"href="article.html?id=${(response.docs[i]._id)}"><img src="${(response.docs[i].imgUrl)}" alt="${response.docs[i].title}" class="image1"></a>
                         <div class="content">
                                 <div class="tags">
                                         ${tagForArticle}

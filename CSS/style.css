@@ -1,3 +1,8 @@
+/* *{
+    margin:0 !important;
+    padding: 0 !important;
+} */
+
 html {
     font-family: 'Open Sans', sans-serif;
 }
@@ -5,6 +10,9 @@ html {
 .header-block{
     display: flex;
     justify-content: center;
+    margin-bottom: 50px;
+    
+
 }
 
 .logo {
@@ -33,15 +41,22 @@ html {
     font-size: 6em;
     font-style: none;
 }
-
+.navbar-nav {
+    padding-right: 350px;
+    padding-left:350px;
+ 
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
 .nav-item {
     text-transform: uppercase;
     color: black !important;
     transition: color 0.2s;
     line-height: 60px;
-    font-weight: 700;
+    font-weight: 400;
+    font-size: 0.9em;
     margin: 0 20px;
 }
+
 
 .nav-item:hover {
     color: rgb(119, 119, 119) !important;
