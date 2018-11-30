@@ -27,6 +27,7 @@ a {
     max-height: 250px;
     min-height: 250px;
     margin-right: 50px;
+    object-fit: contain;
 }
 
 .article a.img-hover img {
@@ -36,6 +37,9 @@ a {
     min-height: 250px;
     margin-right: 50px;
     transition: opacity 0.3s;
+    /* Ratio tip */
+    object-fit: cover;
+    object-position: 50% 50%
 }
 
 .article a.img-hover img:hover {

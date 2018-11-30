@@ -1,19 +1,19 @@
-class Header extends HTMLElement{
-    constructor(){
-        super();
+class Header extends HTMLElement {
+  constructor() {
+    super();
 
-        let header = document.createElement('header');
+    let header = document.createElement('header');
 
-        header.setAttribute('id','header');
-        header.setAttribute('class','container-fluid col-12');
-        header.innerHTML = /*html*/`
+    header.setAttribute('id', 'header');
+    header.setAttribute('class', 'container-fluid col-12');
+    header.innerHTML = /*html*/ `
         <div class="row header-block">
         <div class="social">
-          <a href="https://www.facebook.com/thefarmersdog" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://twitter.com/farmersdog" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.instagram.com/thefarmersdog/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-          <a href="http://digest.thefarmersdog.com" target="_blank" rel="noopener"><i class="fas fa-search"></i></a>
-        </div
+          <a href="https://www.facebook.com/thefarmersdog" aria-label="Facebook" class="fab fa-facebook-f"  target="_blank" rel="noopener"></a>
+          <a href="https://twitter.com/farmersdog" aria-label="Twitter" class="fab fa-twitter" target="_blank" rel="noopener"></a>
+          <a href="https://www.instagram.com/thefarmersdog/" aria-label="Instagram" class="fab fa-instagram" target="_blank" rel="noopener"></a>
+          <a href="http://digest.thefarmersdog.com" aria-label="Search" class="fas fa-search" target="_blank" rel="noopener"></a>
+      </div>
   
         <div class="top-block">
           <div class="logo">
@@ -38,10 +38,10 @@ class Header extends HTMLElement{
         </div>
       </div>`
 
-      this.appendChild(header);
+    this.appendChild(header);
 
-        
-    }
+
+  }
 }
 
-customElements.define('header-comp',Header);
+customElements.define('header-comp', Header);
