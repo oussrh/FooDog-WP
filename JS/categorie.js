@@ -26,7 +26,7 @@ class CatArticles extends HTMLElement {
         styleSheet.setAttribute('href', 'CSS/categorie.css')
         shadowDom.appendChild(styleSheet);
 
-        let tagTitle = document.createElement('h1');
+        let tagTitle = document.createElement('h2');
         this.shadowRoot.appendChild(tagTitle);
         tagTitle.innerHTML = categ.toUpperCase();
 
@@ -51,18 +51,18 @@ class CatArticles extends HTMLElement {
 
                             let tags = '';
                                 for (let j = 0; j < data.docs[i].tagForArticle.length; j++) {
-                                    tags += ` <a href="categorie.html?cat=${data.docs[i].tagForArticle[j]}"><h6 class="categories">${data.docs[i].tagForArticle[j]}</h6></a> `;
+                                    tags += /*html*/`<a href="categorie.html?cat=${data.docs[i].tagForArticle[j]}" title="${data.docs[i].tagForArticle[j]}"><h6 class="categories">${data.docs[i].tagForArticle[j]}</h6></a> `;
                                 }
 
                             if (data.docs[i].imgUrl == "") {
 
-                                div.innerHTML = /*html*/ `
+                                div.innerHTML = /*html*/`
                                 <figure>
-                                <a href="article.html?id=${data.docs[i]._id}"><img src="http://ukcdn.ar-cdn.com/recipes/xlarge/nophoto.svg" alt="${data.docs[i].title}"></a>
+                                <a href="article.html?id=${data.docs[i]._id}" title="${data.docs[i]._id}"><img src="http://ukcdn.ar-cdn.com/recipes/xlarge/nophoto.svg" alt="${data.docs[i].title}"></a>
                                 </figure>
                                 <section>
                                 ${tags}|
-                                <a href="article.html?id=${data.docs[i]._id}"><h2 class="title">${data.docs[i].title}</h2></a>
+                                <a href="article.html?id=${data.docs[i]._id}" title="${data.docs[i].title}"><h3 class="title">${data.docs[i].title}</h3></a>
                                 <p class="resume">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad laborum accusantium incidunt voluptas soluta aut. Sequi aliquam hic ex?</p>
                                 </section>
                                 `
@@ -72,11 +72,11 @@ class CatArticles extends HTMLElement {
 
                                 div.innerHTML = /*html*/ `
                                 <figure>
-                                <a href="article.html?id=${data.docs[i]._id}"><img src="${data.docs[i].imgUrl}" alt="${data.docs[i].title}"></a>
+                                <a href="article.html?id=${data.docs[i]._id}" title="${data.docs[i].title}"><img src="${data.docs[i].imgUrl}" alt="${data.docs[i].title}"></a>
                                 </figure>
                                 <section>
                                 ${tags}|
-                                <a href="article.html?id=${data.docs[i]._id}"><h2 class="title">${data.docs[i].title}</h2></a>
+                                <a href="article.html?id=${data.docs[i]._id}" title="${data.docs[i].title}"><h3 class="title">${data.docs[i].title}</h3></a>
                                 <p class="resume">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad laborum accusantium incidunt voluptas soluta aut. Sequi aliquam hic ex?</p>
                                 </section>
                                 `

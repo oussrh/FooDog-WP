@@ -7,7 +7,7 @@
     flex-wrap: wrap;
 
 }
-h1{
+h2{
     font-family: 'Open Sans',sans-serif;
     font-size: 36px;
     line-height: 46px;
@@ -59,7 +59,7 @@ figure img {
     display: inline;
 }
 
-h2{
+h3{
     font-family: 'Open Sans',sans-serif;
     text-transform: uppercase;
     font-size: 18px;
