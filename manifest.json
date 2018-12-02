@@ -1,0 +1,16 @@
+{
+    "name": "The Foodog",
+    "short_name": "FoodDog",
+    "icons": [
+        {
+          "src": "/img/favicon.ico",
+          "type": "image/ico",
+          "sizes": "16x16"
+        }
+        ],
+    "start_url": "/index.html",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#db5945"
+  }
