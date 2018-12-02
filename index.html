@@ -44,8 +44,8 @@
 	<noscript>
 		<h1>This website is using Javascript, please active it !</h1>
 	</noscript>
+	
 	<header-comp></header-comp>
-	<!--<foo-dog></foo-dog>-->
 	<main-articles></main-articles>
 	<footer-template></footer-template>
 
@@ -55,7 +55,15 @@
 	<script src='JS/index.js'></script>
 	<script src="JS/footer.js"></script>
 
-	<script src="offline/sw.js"></script>
+	<script>
+		if('serviceWorker' in navigator) {
+		  navigator.serviceWorker
+				   .register('offline/sw.js', {scope: 'offline/'})
+				   .then(function() { console.log("Service Worker Registered"); 
+				   
+				});
+		}
+	</script>
 
 </body>
 
