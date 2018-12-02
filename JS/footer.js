@@ -16,12 +16,13 @@ class FeaturedPost extends HTMLElement {
             if(xmlhttp.readyState === 4 && xmlhttp.status === 200){
                 let data = JSON.parse(xmlhttp.responseText)
                 for (let i = 0; i < 3; i++) {
+                    let url = data.docs[i].imgUrl.replace(/^http:\/\//i, 'https://');
                     articles += /*html*/ `
                             <section class="topArticle col-lg-12 d-flex">
                             
                                 <figure class="col-lg-5">
                                     <a href="article.html?id=${data.docs[i]._id}" title="${data.docs[i].title}">
-                                        <img class="img-responsive" src="${data.docs[i].imgUrl}" alt="${data.docs[i].title}"/>
+                                        <img class="img-responsive" src="${url}" alt="${data.docs[i].title}"/>
                                     </a>
                                 </figure>
 
