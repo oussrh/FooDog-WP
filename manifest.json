@@ -18,5 +18,9 @@
     "scope": "/FooDog-WP/",
     "display": "standalone",
     "background_color": "#ffffff",
-    "theme_color": "#db5945"
+    "theme_color": "#db5945",
+    "serviceworker": {
+      "src": "/FooDog-WP/offline/sw.js",
+      "scope": "/FooDog-WP/offline/"
+    }
   }
