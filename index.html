@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-US">
 
 <head>
@@ -55,13 +55,7 @@
 	<script src='JS/index.js'></script>
 	<script src="JS/footer.js"></script>
 
-	<script>
-		if('serviceWorker' in navigator) {
-		  navigator.serviceWorker
-				   .register('JS/sw.js')
-				   .then(function() { console.log("Service Worker Registered"); });
-		}
-	</script>
+	<script src="/offline/sw.js"></script>
 
 </body>
 
