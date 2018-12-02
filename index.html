@@ -20,6 +20,7 @@
 	<meta property="fb:app_id" content="1911853629130609" />
 	<meta property="og:image" content="https://res.cloudinary.com/dfpdonjil/image/upload/v1542364638/demo/e0u8tq7yodx8rwyfpk38.jpg" />
 
+	<link rel="manifest" href="manifest.json">
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 
@@ -44,7 +45,7 @@
 	<noscript>
 		<h1>This website is using Javascript, please active it !</h1>
 	</noscript>
-	
+
 	<header-comp></header-comp>
 	<main-articles></main-articles>
 	<footer-template></footer-template>
@@ -63,6 +64,23 @@
 				   
 				});
 		}
+
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('/offline/sw.js', { scope: '/offline/' }).then(function(reg) {
+		  
+			  if(reg.installing) {
+				console.log('Service worker installing');
+			  } else if(reg.waiting) {
+				console.log('Service worker installed');
+			  } else if(reg.active) {
+				console.log('Service worker active');
+			  }
+		  
+			}).catch(function(error) {
+			  // registration failed
+			  console.log('Registration failed with ' + error);
+			});
+		  }
 	</script>
 
 </body>
