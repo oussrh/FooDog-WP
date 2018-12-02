@@ -1,11 +1,17 @@
 {
     "name": "The Foodog",
     "short_name": "FoodDog",
+    "description": "foodog bla bla bla bla",
     "icons": [
         {
           "src": "/img/favicon.ico",
           "type": "image/ico",
           "sizes": "16x16"
+        },
+        {
+          "src": "/img/icon512x512.png",
+          "type": "image/png",
+          "sizes": "512x512"
         }
         ],
     "start_url": "/index.html",
