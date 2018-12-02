@@ -1,5 +1,5 @@
-
-const cacheName = `FoodDog`;
+const version = "0.2.15";
+const cacheName = `FoodDog-${version}`;
 self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(cacheName).then(cache => {
