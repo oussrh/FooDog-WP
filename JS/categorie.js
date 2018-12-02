@@ -60,7 +60,7 @@ class CatArticles extends HTMLElement {
                                 }
 
                             if (data.docs[i].imgUrl == "") {
-
+                                
                                 div.innerHTML = /*html*/`
                                 <figure>
                                 <a href="article.html?id=${data.docs[i]._id}" title="${data.docs[i]._id}"><img src="http://ukcdn.ar-cdn.com/recipes/xlarge/nophoto.svg" alt="${data.docs[i].title}"></a>
@@ -74,10 +74,10 @@ class CatArticles extends HTMLElement {
                                 section.appendChild(div);
 
                             } else {
-
+                                let url = data.docs[i].imgUrl.replace(/^http:\/\//i, 'https://');
                                 div.innerHTML = /*html*/ `
                                 <figure>
-                                <a href="article.html?id=${data.docs[i]._id}" title="${data.docs[i].title}"><img src="${data.docs[i].imgUrl}" alt="${data.docs[i].title}"></a>
+                                <a href="article.html?id=${data.docs[i]._id}" title="${data.docs[i].title}"><img src="${url}" alt="${data.docs[i].title}"></a>
                                 </figure>
                                 <section>
                                 ${tags}|
