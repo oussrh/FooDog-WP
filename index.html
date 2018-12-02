@@ -55,8 +55,13 @@
 	<script src='JS/index.js'></script>
 	<script src="JS/footer.js"></script>
 
-	<script src="JS/sw.js"></script>
-
+	<script>
+		if('serviceWorker' in navigator) {
+		  navigator.serviceWorker
+				   .register('JS/sw.js')
+				   .then(function() { console.log("Service Worker Registered"); });
+		}
+	</script>
 
 </body>
 
