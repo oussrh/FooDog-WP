@@ -1,17 +1,22 @@
 const version = "0.2.15";
 const cacheName = `FoodDog-${version}`;
-self.addEventListener('install', e => {
-  e.waitUntil(
-    caches.open(cacheName).then(cache => {
-      return cache.addAll([
-        `/FooDog-WP/offline/`,
-        `/FooDog-WP/offline/index.html`
-      ])
-          .then(() => self.skipWaiting());
-    })
-  );
-});
-
+// self.addEventListener('install', e => {
+//   e.waitUntil(
+//     caches.open(cacheName).then(cache => {
+//       return cache.addAll([
+//         `/FooDog-WP/offline/`,
+//         `/FooDog-WP/offline/index.html`
+//       ])
+//           .then(() => self.skipWaiting());
+//     })
+//   );
+// });
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(cacheName)
+    .then(cache => cache.addAll('/FooDog-WP/offline/index.html'))
+  )
+})
 self.addEventListener('activate', event => {
   event.waitUntil(self.clients.claim());
 });
