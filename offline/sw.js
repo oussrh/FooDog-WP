@@ -7,12 +7,10 @@ if ('serviceWorker' in navigator) {
       console.log("Service Worker Registered");
       self.addEventListener('install', e => {
         e.waitUntil(
-          caches.open('foodog').then(cache => {
+          caches.open('foodog1').then(cache => {
             return cache.addAll([
-                `/offline/`,
-                `/index.html`,
-                `/CSS/style.css`,
-                `/offline/CSS/index.css`
+                `offline/`,
+                `offline/index.html`
               ])
               .then(() => self.skipWaiting());
           })
@@ -25,7 +23,7 @@ if ('serviceWorker' in navigator) {
 
       self.addEventListener('fetch', event => {
         event.respondWith(
-          caches.open('foodog')
+          caches.open('foodog1')
           .then(cache => cache.match(event.request, {
             ignoreSearch: true
           }))
