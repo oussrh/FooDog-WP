@@ -1,8 +1,6 @@
-const version = "0.1.1";
-const cacheName = `Foodog-${version}`;
 self.addEventListener('install', e => {
   e.waitUntil(
-    caches.open(cacheName).then(cache => {
+    caches.open('foodog').then(cache => {
       return cache.addAll([
         `/`,
         `/index.html`,
@@ -30,7 +28,7 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.open(cacheName)
+    caches.open('foodog')
       .then(cache => cache.match(event.request, {ignoreSearch: true}))
       .then(response => {
       return response || fetch(event.request);
