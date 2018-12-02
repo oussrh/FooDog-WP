@@ -57,14 +57,8 @@
 	<script src="JS/footer.js"></script>
 
 	<script>
-		if('serviceWorker' in navigator) {
-			navigator.serviceWorker.register('/FooDog-WP/offline/sw.js', { scope: '/FooDog-WP/offline/' })
-			  .then(function(registration) {
-					console.log('Service Worker Registered');
-			  });
-			navigator.serviceWorker.ready.then(function(registration) {
-			   console.log('Service Worker Ready');
-			});
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('offline/sw.js');
 		  }
 	</script>
 	
