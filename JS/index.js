@@ -42,7 +42,7 @@ class Articles extends HTMLElement {
                                                 }
 
                                         }
-                                        url = response.docs[i].imgUrl.replace(/^http:\/\//i, 'https://');
+                                        let url = response.docs[i].imgUrl.replace(/^http:\/\//i, 'https://');
                                         div.innerHTML = /*html*/`  
                 <div class="article">
                         <a class ="img-hover"href="article.html?id=${(response.docs[i]._id)}"><img src="${url}" alt="${response.docs[i].title}" class="image1"></a>
