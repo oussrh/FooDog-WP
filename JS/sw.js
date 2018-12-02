@@ -1,4 +1,4 @@
-const version = "0.6.11";
+const version = "0.1.1";
 const cacheName = `Foodog-${version}`;
 self.addEventListener('install', e => {
   e.waitUntil(
