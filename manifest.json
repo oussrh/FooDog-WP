@@ -4,18 +4,18 @@
     "description": "foodog bla bla bla bla",
     "icons": [
         {
-          "src": "/img/favicon.ico",
+          "src": "/FooDog-WP/img/favicon.ico",
           "type": "image/ico",
           "sizes": "16x16"
         },
         {
-          "src": "/img/icon512x512.png",
+          "src": "/FooDog-WP/img/icon512x512.png",
           "type": "image/png",
           "sizes": "512x512"
         }
         ],
-    "start_url": "/index.html",
-    "scope": "/",
+    "start_url": "/FooDog-WP/index.html",
+    "scope": "/FooDog-WP/",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#db5945"

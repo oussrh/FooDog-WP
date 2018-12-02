@@ -4,8 +4,8 @@ self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(cacheName).then(cache => {
       return cache.addAll([
-        `/offline/`,
-        `/offline/index.html`
+        `/FooDog-WP/offline/`,
+        `/FooDog-WP/offline/index.html`
       ])
           .then(() => self.skipWaiting());
     })
